@@ -8,12 +8,14 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #ffffffa1;
+    background: #ffffffde;
     border: 3px solid black;
     border-radius: 10px;
 }
 
 *{
+    cursor: url("assets/default.png"), default;
+    cursor: url("assets/pointer.png"), pointer;
     margin:0;
     padding:0;
     box-sizing:border-box;
@@ -24,6 +26,7 @@ body{
     color:white;
     font-family:'Quantico', sans-serif;
     overflow-x:hidden;
+    cursor: default;
 }
 
 header{
