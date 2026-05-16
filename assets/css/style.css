@@ -14,8 +14,7 @@
 }
 
 *{
-    cursor: url("assets/default.png"), default;
-    cursor: url("assets/pointer.png"), pointer;
+    cursor: url("assets/default.png"), auto;
     margin:0;
     padding:0;
     box-sizing:border-box;
