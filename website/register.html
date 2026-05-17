@@ -9,84 +9,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Goldman&family=Quantico:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
     <style>
-        /* Giriş sayfasıyla aynı tasarımsal bütünlük */
-        .auth-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: #050816;
-        }
-        .auth-card {
-            width: 400px;
-            padding: 40px;
-            background: #000000;
-            border: 2px solid #3b82f6;
-            border-radius: 20px;
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
-            text-align: center;
-        }
-        .auth-card h2 {
-            font-size: 32px;
-            margin-bottom: 30px;
-            letter-spacing: 2px;
-            color: #ffffff;
-            text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
-        }
-        .input-group {
-            margin-bottom: 20px;
-        }
-        .input-group input {
-            width: 100%;
-            padding: 15px;
-            background: #111111;
-            border: 1px solid #3b82f6;
-            border-radius: 10px;
-            color: white;
-            font-family: 'Quantico', sans-serif;
-            font-size: 16px;
-            outline: none;
-            transition: 0.3s;
-        }
-        .input-group input:focus {
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
-            border-color: #ffffff;
-        }
-        .auth-btn {
-            width: 100%;
-            height: 50px;
-            background: #3b82f6;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-family: 'Quantico', sans-serif;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            margin: 15px 0 0 0;
-            transition: 0.3s;
-        }
-        .auth-btn:hover {
-            background: #ffffff;
-            color: #000000;
-            box-shadow: 0 0 20px #ffffff;
-        }
-        .auth-card p {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #a3a3a3;
-        }
-        .auth-card a {
-            color: #3b82f6;
-            text-decoration: none;
-            font-weight: bold;
-        }
+        /* Ekranı ikiye bölen gelişmiş login/register stili */
+.auth-container {
+    display: flex;
+    min-height: 100vh;
+    background: #020309;
+}
+/* Sol taraftaki fantastik görsel alan */
+.auth-banner-side {
+    flex: 1;
+    background: linear-gradient(135px, rgba(5,8,22,0.85), rgba(0,0,0,0.5)), url('../assets/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-right: 2px solid #3b82f6;
+}
+@media (max-width: 768px) { .auth-banner-side { display: none; } }
+
+/* Sağ taraftaki form alanı */
+.auth-form-side {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000;
+    padding: 40px;
+}
+.auth-card { width: 100%; max-width: 380px; }
     </style>
 </head>
 <body>
     <div class="auth-container">
         <div class="auth-card">
-            <h2>KAYIT OL</h2>
+            <h2>Kayıt Ol</h2>
             <form id="register-form">
                 <div class="input-group">
                     <input type="text" id="register-username" placeholder="Kullanıcı Adı (Oyuncu Adı)" required>
@@ -97,7 +56,7 @@
                 <div class="input-group">
                     <input type="password" id="register-password" placeholder="Şifre" required>
                 </div>
-                <button type="submit" class="auth-btn">HESAP OLUŞTUR</button>
+                <button type="submit" class="auth-btn">Hesap Oluştur</button>
             </form>
             <p>Zaten bir hesabın var mı? <a href="login.html">Giriş Yap</a></p>
         </div>
