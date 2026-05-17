@@ -6,82 +6,69 @@
     <title translate="no">Zethron Client</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Goldman&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Goldman&family=Quantico:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="image/png" href="assets/icon.png">
+    <style>
+        /* Sağ üst köşedeki Giriş Yap butonu stili */
+        .nav-auth-btn {
+            background: transparent;
+            color: white;
+            border: 2px solid #3b82f6;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-family: 'Quantico', sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .nav-auth-btn:hover {
+            background: #3b82f6;
+            box-shadow: 0 0 15px #3b82f6;
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="logo-box">
-            <img src="assets/logo.png">
+            <img src="assets/logo.png" alt="Logo">
             <h1 translate="no">ZETHRON CLIENT</h1>
         </div>
         <nav>
-            <a href="#">NEWS</a>
-            <a href="#">FEATURES</a>
-            <a href="#">DOWNLOAD</a>
-            <a href="#">SUPPORT</a>
-            <a href="#">DISCORD</a>
+            <a href="#">Ev</a>
+            <a href="#">Özellikler</a>
+            <a href="#">Client</a>
+            <a href="#">Destek</a>
+            <a href="website/login.html" class="nav-auth-btn">Giriş Yap</a>
         </nav>
     </header>
+
     <section class="hero">
         <div class="overlay"></div>
         <div class="hero-content">
-            <img src="assets/logo.png" class="hero-logo">
-            <h2>
-                NEXT GENERATION
-                <br>
-                MINECRAFT CLIENT
-            </h2>
-            <p>
-                Modern launcher experience with Fabric support,
-                mods, optimization and futuristic UI.
-            </p>
+            <img src="assets/logo.png" class="hero-logo" alt="Hero Logo">
+            <h2>Yeni Nesil<br translate="no">MINECRAFT CLIENTI!</h2>
+            <p>Fabric destekli, özelleştirilmiş arayüze sahip, optimizasyon ve çeşitli modlara sahip modern bir Client deneyimi!</p>
             <div class="buttons">
-              <a href="website/login.html">
-                <button class="download-btn">
-                  LOGIN
-                </button>
-              </a>
-              <a href="website/register.html">
-                <button class="discord-btn">
-                  REGISTER
-                </button>
-              </a>
+                <a href="website/login.html"><button class="download-btn">Giriş Yap</button></a>
+                <a href="website/register.html"><button class="discord-btn">Kayıt Ol</button></a>
             </div>
         </div>
     </section>
-    <section class="features">
-        <h2>FEATURES</h2>
-        <div class="cards">
-            <div class="card">
-                <h3>Fabric Support</h3>
-                <p>
-                    Automatic Fabric installation system.
-                </p>
-            </div>
-            <div class="card">
-                <h3>Mod Manager</h3>
-                <p>
-                    Easy drag-and-drop mod support.
-                </p>
-            </div>
-            <div class="card">
-                <h3>Performance</h3>
-                <p>
-                    FPS optimized Minecraft experience.
-                </p>
-            </div>
-        </div>
-    </section>
-    <section class="launcher-preview">
-        <h2>LAUNCHER UI</h2>
-        <img src="assets/launcher.png">
-    </section>
-    <footer>
-        <p>
-            © 2026 Zethron Client
-        </p>
-    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        
+        // Kendi firebaseConfig bilgilerinizi buraya ekleyin
+        const firebaseConfig = { apiKey: "AIzaSyAO5GcRw3enTiLHEF4V39sOEAsD6NAUjdU", authDomain: "zethron.firebaseapp.com", projectId: "zethron", appId: "1:488130546274:web:9fa33404dd7ed562055f3b" };
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) { window.location.href = "main.html"; }
+        });
+    </script>
 </body>
 </html>
