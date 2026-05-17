@@ -17,8 +17,8 @@
         </div>
         <nav>
             <a href="#">Ev</a>
-            <a href="#">Özellikler</a>
-            <a href="#">Client</a>
+            <a href="#ozellikler">Özellikler</a>
+            <a href="#client">Client</a>
             <a href="website/login.html" class="nav-auth-btn">Giriş Yap</a>
         </nav>
     </header>
@@ -38,7 +38,7 @@
             <div class="buttons">
               <a href="website/login.html">
                 <button class="download-btn">
-                  LOGIN
+                  Giriş Yap
                 </button>
               </a>
               <a href="website/register.html">
@@ -50,7 +50,9 @@
         </div>
     </section>
     <section class="features">
+        <h1 id="ozellikler"></h1>
         <h2>ÖZELLİKLER</h2>
+        <p class="ozel">Her ne kadar Lunar ve Feather gibi çeşitli pro seviyesi clientler gibi olmasa bile<br>Zethron Client'inde kendine has özellikleri tabikide mevcut!<br>İşte o muazzam özelliklerden bazıları:</p>
         <div class="cards">
             <div class="card">
                 <h3>Mod & Paketler</h3>
@@ -70,12 +72,44 @@
                     FPS'ini uçurabilecek özel paketler
                 </p>
             </div>
+             <div class="card">
+                <h3>Kostümler!</h3>
+                <p>
+                    Siteye kayıt olarak yükleyip oyun içinde sahip olabileceğin kostümler!
+                </p>
+            </div>
+            <div class="card">
+                <h3>Özel Arayüz</h3>
+                <p>
+                    Diğer Clientlerdeki gibi özelleştirilmiş Minecraft arayüzü!
+                </p>
+            </div>
         </div>
     </section>
-    <section class="launcher-preview">
-        <h2>CLIENT GÖRÜNÜMÜ</h2>
-        <img src="assets/launcher.png">
-    </section>
+<section class="launcher-preview">
+    <div class="preview-container">
+        <div class="preview-left">
+            <img src="assets/launcher.png" alt="Zethron Launcher">
+        </div>
+        
+        <div class="preview-right">
+            <h2 id="client">ZETHRON CLIENT</h2>
+            <p>
+                Gelişmiş optimizasyon ve oyun kalitenizi arttıracak modları, dahili Fabric desteği ile seçilebilen oyun sürümleri ve diğer Clientlerdeki gibi muhteşem koyu temalı arayüzü ile Minecraft deneyiminizi en üst seviyeye çıkarın. 
+                <br><br> 
+                İşte Zethron Client'i indirebilmeniz için gereken sihirli butonlar!
+            </p>
+            <div class="download-action-buttons">
+                <a href="#download-windows" class="os-btn windows-btn">
+                    <span class="os-icon">❖</span> Windows İçin İndir
+                </a>
+                <a href="#download-linux" class="os-btn linux-btn">
+                    <span class="os-icon">🐧</span> Linux İçin İndir
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
     <footer>
         <p>
             © 2026 Zethron Client
