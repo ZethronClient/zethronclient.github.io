@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title translate="no">Zethron Client - Kontrol Paneli</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        body { background: #020309; font-family: 'Quantico', sans-serif; }
+        .dashboard-container { padding: 140px 50px 50px 50px; display: flex; justify-content: center; }
+        
+        /* Sağ Üst Kullanıcı Butonu */
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 5px 15px;
+            border-radius: 25px;
+            border: 1px solid rgba(59, 130, 246, 0.4);
+        }
+        .user-menu img { width: 32px; height: 32px; border-radius: 4px; }
+        .user-name { color: white; font-weight: bold; }
+        .logout-btn { color: #ff4444; cursor: pointer; font-size: 13px; text-decoration: none; margin-left: 10px; }
+
+        /* Profil Kartı Tasarımı (Attığın resimlerdeki gibi geniş ve modern) */
+        .profile-card {
+            width: 100%;
+            max-width: 1000px;
+            background: #000000;
+            border: 2px solid #3b82f6;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.2);
+        }
+        .profile-header { display: flex; align-items: center; gap: 30px; border-bottom: 1px solid #1e293b; padding-bottom: 25px; }
+        .big-avatar { width: 96px; height: 96px; border-radius: 10px; border: 2px solid white; }
+        .profile-info h2 { font-size: 36px; color: white; margin-bottom: 5px; }
+        .profile-info span { color: #3b82f6; font-weight: bold; background: rgba(59, 130, 246, 0.1); padding: 3px 10px; border-radius: 5px; }
+
+        /* Skin Yükleme Bölümü */
+        .skin-section { margin-top: 35px; display: flex; gap: 40px; flex-wrap: wrap; }
+        .skin-preview-box { width: 200px; height: 280px; background: #111; border-radius: 15px; border: 1px dashed #3b82f6; display: flex; align-items: center; justify-content: center; color: #666; }
+        .skin-preview-box img { max-width: 100%; max-height: 100%; display: none; }
+        .skin-upload-box { flex: 1; min-width: 300px; }
+        .skin-upload-box h3 { font-size: 24px; margin-bottom: 15px; }
+        .skin-upload-box p { color: #a3a3a3; line-height: 1.6; margin-bottom: 20px; }
+        
+        .file-input-label {
+            background: #3b82f6; color: white; padding: 15px 30px; border-radius: 10px;
+            font-weight: bold; cursor: pointer; display: inline-block; transition: 0.3s;
+        }
+        .file-input-label:hover { background: white; color: black; box-shadow: 0 0 15px white; }
+        input[type="file"] { display: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-box">
+            <img src="assets/logo.png">
+            <h1 translate="no">ZETHRON CLIENT</h1>
+        </div>
+        <nav>
+            <a href="#">Ev</a>
+            <a href="#">Client</a>
+            <a href="#">Destek</a>
+            <div class="user-menu">
+                <img src="assets/account.png" id="nav-avatar">
+                <span class="user-name" id="nav-username">Yükleniyor...</span>
+                <span class="logout-btn" id="logout-trigger">Çıkış Yap</span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="dashboard-container">
+        <div class="profile-card">
+            <div class="profile-header">
+                <img src="assets/account.png" class="big-avatar" id="card-avatar">
+                <div class="profile-info">
+                    <h2 id="card-username">Oyuncu</h2>
+                    <span>Zethron Savaşçısı</span>
+                </div>
+            </div>
+            
+            <div class="skin-section">
+                <div class="skin-preview-box" id="preview-container">
+                    <span id="preview-text">Skin Önizleme</span>
+                    <img id="skin-img-preview" src="">
+                </div>
+                <div class="skin-upload-box">
+                    <h3>Pelerin veya Skin Değiştir</h3>
+                    <p>TLauncher veya Premium Minecraft skin dosyanızı (.png) buraya yükleyerek karakterinizi özelleştirebilirsiniz. Değişiklikler anında launcher'ınıza yansır.</p>
+                    <label class="file-input-label">
+                        ➔ SKIN DOSYASI SEÇ
+                        <input type="file" id="skin-file-picker" accept=".png">
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+        const firebaseConfig = { apiKey: "AIzaSyAO5GcRw3enTiLHEF4V39sOEAsD6NAUjdU", authDomain: "zethron.firebaseapp.com", projectId: "zethron", appId: "1:488130546274:web:9fa33404dd7ed562055f3b" };
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Kullanıcı giriş kontrolü yapılıyor
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const displayName = user.displayName || "ZethronPlayer";
+                document.getElementById("nav-username").innerText = displayName;
+                document.getElementById("card-username").innerText = displayName;
+            } else {
+                // Giriş yapmadıysa ana sayfaya tekmele
+                window.location.href = "index.html";
+            }
+        });
+
+        // Çıkış Butonu Fonksiyonu
+        document.getElementById("logout-trigger").addEventListener("click", () => {
+            signOut(auth).then(() => { window.location.href = "index.html"; });
+        });
+
+        // Görsel Skin Önizleme Motoru
+        document.getElementById("skin-file-picker").addEventListener("change", function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    document.getElementById("skin-img-preview").src = event.target.result;
+                    document.getElementById("skin-img-preview").style.display = "block";
+                    document.getElementById("preview-text").style.display = "none";
+                }
+                reader.readAsDataURL(file);
+                alert("Harika! Seçtiğin skin başarıyla yüklendi (Önizleme aktif).");
+            }
+        });
+    </script>
+</body>
+</html>
