@@ -48,7 +48,7 @@ header{
     display:flex;
     align-items:center;
     gap:15px;
-     filter:drop-shadow(0 0 5px rgb(255 255 255 / 80%));
+    filter:drop-shadow(0 0 30px rgb(255 255 255 / 80%));
 }
 
 .logo-box img{
@@ -105,7 +105,7 @@ nav a:hover{
 .hero-content{
     position:relative;
     z-index:2;
-    filter:drop-shadow(0 0 5px rgb(255 255 255 / 80%));
+    filter:drop-shadow(0 0 3px rgb(255 255 255 / 80%));
 }
 
 .hero-logo{
@@ -182,7 +182,7 @@ button{
 .features h2{
     font-size:50px;
     margin-bottom:60px;
-     filter: drop-shadow(0 0 5px white);
+     filter: drop-shadow(0 0 2px white);
 }
 
 .cards{
@@ -199,7 +199,7 @@ button{
     background:#000000;
     font-style: italic;
     cursor:default;
-    filter: drop-shadow(0 0 10px white);
+    filter: drop-shadow(0 0 5px white);
     border:2px solid rgb(255 255 255);
     transition:0.5s;
 }
@@ -229,14 +229,14 @@ button{
 .launcher-preview h2{
     font-size:50px;
     margin-bottom:50px;
-     filter: drop-shadow(0 0 5px white);
+    filter: drop-shadow(0 0 2px white);
 }
 
 .launcher-preview img{
     width:50%;
     max-width:1200px;
     border:2px solid rgb(255 255 255 / 0%);
-    box-shadow:0 0 100px rgb(25 34 79);
+    box-shadow:0 0 75px rgb(25 34 79);
 }
 
 footer{
