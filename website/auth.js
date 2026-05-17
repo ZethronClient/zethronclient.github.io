@@ -1,8 +1,7 @@
-// Firebase SDK modüllerini çağırıyoruz
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-// !!! BURAYI KENDİ FIREBASE PROJE BİLGİLERİNLE DEĞİŞTİR !!!
+// BURAYI FIREBASE'DEN ALDIĞIN KENDİ BLOKUNLA DEĞİŞTİR
   const firebaseConfig = {
     apiKey: "AIzaSyAO5GcRw3enTiLHEF4V39sOEAsD6NAUjdU",
     authDomain: "zethron.firebaseapp.com",
@@ -12,63 +11,47 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, up
     appId: "1:488130546274:web:9fa33404dd7ed562055f3b",
     measurementId: "G-4HSXYQJJEN"
   };
-// Firebase'i başlatıyoruz
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// ---------------------------------------------------------
-// KAYIT OLMA SİSTEMİ (Register)
-// ---------------------------------------------------------
+// KAYIT OLMA SİSTEMİ
 const registerForm = document.getElementById("register-form");
 if (registerForm) {
     registerForm.addEventListener("submit", (e) => {
-        e.preventDefault(); // Sayfanın yenilenmesini engelle
-
-        const username = document.getElementById("register-username").value.strip ? document.getElementById("register-username").value.strip() : document.getElementById("register-username").value;
-        const email = document.getElementById("register-email").value;
+        e.preventDefault();
+        const username = document.getElementById("register-username").value.trim();
+        const email = document.getElementById("register-email").value.trim();
         const password = document.getElementById("register-password").value;
 
-        // Firebase Auth ile kullanıcı oluşturma
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                const user = userCredential.user;
-                
-                // Oyuncu adını (Kullanıcı adını) Firebase profiline kaydediyoruz
-                updateProfile(user, {
+                updateProfile(userCredential.user, {
                     displayName: username
                 }).then(() => {
-                    alert("Hesabın başarıyla oluşturuldu, Zethron dünyasına hoş geldin! Giriş sayfasına yönlendiriliyorsun.");
+                    alert("Zethron Client'a hoş geldin! Hesabın başarıyla oluşturuldu.");
                     window.location.href = "login.html";
                 });
             })
             .catch((error) => {
-                alert("Kayıt hatası: " + error.message);
+                alert("Kayıt Hatası: " + error.message);
             });
     });
 }
 
-// ---------------------------------------------------------
-// GİRİŞ YAPMA SİSTEMİ (Login)
-// ---------------------------------------------------------
+// GİRİŞ YAPMA SİSTEMİ
 const loginForm = document.getElementById("login-form");
 if (loginForm) {
     loginForm.addEventListener("submit", (e) => {
         e.preventDefault();
-
-        const email = document.getElementById("login-email").value;
+        const email = document.getElementById("login-email").value.trim();
         const password = document.getElementById("login-password").value;
 
-        // Firebase Auth ile giriş kontrolü
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                const user = userCredential.user;
-                alert(`Giriş başarılı! Hoş geldin, ${user.displayName || 'Savaşçı'}. Launcher'ı açıp oyuna bağlanabilirsin.`);
-                
-                // İleride web panel veya indirme sayfasına yönlendirmek istersen:
-                // window.location.href = "../index.html"; 
+                alert("Giriş Başarılı! Hoş geldin: " + userCredential.user.displayName);
             })
             .catch((error) => {
-                alert("Giriş başarısız: " + error.message);
+                alert("Giriş Hatası: " + error.message);
             });
     });
 }
