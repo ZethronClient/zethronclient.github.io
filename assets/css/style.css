@@ -41,7 +41,7 @@ header{
     background:rgba(0,0,0,0.45);
     backdrop-filter:blur(10px);
     filter:drop-shadow(0 0 25px rgb(30 28 28 / 80%));
-    border-bottom:2px solid rgb(255 255 255 / 45%);
+    border-bottom:2px solid rgb(255 255 255);
 }
 
 .logo-box{
@@ -53,7 +53,7 @@ header{
 
 .logo-box img{
     width:55px;
-     filter:drop-shadow(0 0 25px rgb(255 255 255 / 80%));
+    filter:drop-shadow(0 0 25px rgb(255 255 255 / 80%));
 }
 
 .logo-box h1{
@@ -177,7 +177,7 @@ button{
 .features{
     padding:120px 80px;
     text-align:center;
-    background:l#050816radient(to top, #ff0101, ##050816);
+    background:linear-gradient(to top, #070220, #050816);
 }
 
 .features h2{
@@ -225,6 +225,7 @@ button{
 .launcher-preview{
     padding:100px 50px;
     text-align:center;
+    background: linear-gradient(to top, black, #00051d);
 }
 
 .launcher-preview h2{
@@ -244,4 +245,7 @@ footer{
     padding:40px;
     text-align:center;
     color:#ffffff;
-    border-top:1px solid rgb(125 125 125 / 39%);
+    border-top:2px solid rgb(255 255 255);
+    background: black;
+    filter: drop-shadow(0 0 10px #ffffff4f);
+
