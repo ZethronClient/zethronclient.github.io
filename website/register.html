@@ -9,37 +9,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Goldman&family=Quantico:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
     <style>
-        /* Ekranı ikiye bölen gelişmiş login/register stili */
-.auth-container {
-    display: flex;
-    min-height: 100vh;
-    background: #020309;
-}
-/* Sol taraftaki fantastik görsel alan */
-.auth-banner-side {
-    flex: 1;
-    background: linear-gradient(135px, rgba(5,8,22,0.85), rgba(0,0,0,0.5)), url('../assets/bg.jpg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    border-right: 2px solid #3b82f6;
-}
-@media (max-width: 768px) { .auth-banner-side { display: none; } }
-
-/* Sağ taraftaki form alanı */
-.auth-form-side {
-    width: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #000000;
-    padding: 40px;
-}
-.auth-card { width: 100%; max-width: 380px; }
+        .auth-container {
+            display: flex;
+            min-height: 100vh;
+            background: #020309;
+        }
+        .auth-banner-side {
+            flex: 1;
+            background: linear-gradient(135px, rgba(5,8,22,0.85), rgba(0,0,0,0.5)), url('../assets/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            border-right: 2px solid #3b82f6;
+        }
+        @media (max-width: 768px) { .auth-banner-side { display: none; } }
+        
+        .auth-form-side {
+            width: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000000;
+            padding: 40px;
+        }
+        .auth-card { width: 100%; max-width: 380px; }
     </style>
 </head>
 <body>
