@@ -36,12 +36,32 @@ header{
     z-index:999;
     display:flex;
     justify-content:space-between;
-    align-items:center;
+    align-items:center; /* Logoyu ve menüyü dikeyde ortalar */
     padding:0 70px;
     background:rgba(0,0,0,0.45);
     backdrop-filter:blur(10px);
     filter:drop-shadow(0 0 25px rgb(30 28 28 / 80%));
     border-bottom:2px solid rgb(255 255 255);
+}
+
+/* Sağ üst köşedeki şık Giriş Yap butonu stili */
+.nav-auth-btn {
+    background: #ffffff00;
+    color: white;
+    border: 2px solid #ffffff;
+    padding: 8px 25px;
+    border-radius: 20px;
+    font-family: 'Quantico', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-auth-btn:hover {
+    background: #3b82f6;
+    box-shadow: 0 0 15px #3b82f6;
+    color: #ffffff;
 }
 
 .logo-box{
@@ -63,6 +83,7 @@ header{
 
 nav{
     display:flex;
+    align-items:center; /* Linkleri ve butonu milimetrik olarak yan yana eşitler, kaymayı önler */
     gap:35px;
 }
 
@@ -119,7 +140,6 @@ nav a:hover{
     line-height:1.1;
     color: #ffffff;
     margin-bottom:20px;
-    
 }
 
 .hero-content p{
@@ -248,4 +268,4 @@ footer{
     border-top:2px solid rgb(255 255 255);
     background: black;
     filter: drop-shadow(0 0 10px #ffffff4f);
-
+}
