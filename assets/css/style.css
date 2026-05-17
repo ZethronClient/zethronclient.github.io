@@ -150,6 +150,11 @@ nav a:hover{
     font-size:20px;
 }
 
+#ozellikler {
+    margin-bottom: 200px;
+    color: #050717;
+}
+
 .buttons{
     margin-top:35px;
 }
@@ -202,9 +207,19 @@ button{
 
 .features h2{
     font-size:50px;
-    margin-bottom:60px;
+    margin-bottom:-10px;
+    margin-top: 10px;
     filter: drop-shadow(0 0 2px white);
 }
+
+
+.ozel{
+    font-weight: 200;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
 
 .cards{
     display:flex;
@@ -248,17 +263,134 @@ button{
     background: linear-gradient(to top, black, #00051d);
 }
 
-.launcher-preview h2{
-    font-size:50px;
-    margin-bottom:50px;
+/* Launcher Önizleme Alanı Genel Ayarları */
+.launcher-preview {
+    padding: 120px 70px;
+    background: linear-gradient(to top, black, #00051d);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Resmi ve Metinleri Yan Yana Getiren Esnek Kutu (Flexbox) */
+.preview-container {
+    display: flex;
+    max-width: 1300px;
+    width: 100%;
+    align-items: center;
+    gap: 60px; /* Resim ile metinler arasındaki boşluk */
+}
+
+/* Sol Taraf: Resim Alanı */
+.preview-left {
+    flex: 1.2;
+    display: flex;
+    justify-content: center;
+}
+
+.preview-left img {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 75px rgb(25 34 79);
+    transition: 0.5s ease;
+}
+
+.preview-left img:hover {
+    transform: scale(1.02);
+    border-color: #3b82f6;
+    box-shadow: 0 0 85px rgba(59, 130, 246, 0.3);
+}
+
+/* Sağ Taraf: Başlık, Açıklama ve Butonlar */
+.preview-right {
+    flex: 1;
+    text-align: left; /* Metinleri sola yaslar */
+}
+
+.preview-right h2 {
+    font-size: 48px;
+    margin-bottom: 25px;
+    color: #ffffff;
+    letter-spacing: 2px;
     filter: drop-shadow(0 0 2px white);
 }
 
-.launcher-preview img{
-    width:50%;
-    max-width:1200px;
-    border:2px solid rgb(255 255 255 / 0%);
-    box-shadow:0 0 75px rgb(25 34 79);
+.preview-right p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #c5cdd6;
+    margin-bottom: 40px;
+    font-family: 'Quantico', sans-serif;
+}
+
+/* İndirme Butonlarının Yan Yana Durduğu Kutu */
+.download-action-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Ortak İşletim Sistemi Buton Stili */
+.os-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: 0.4s ease;
+    font-family: 'Quantico', sans-serif;
+}
+
+/* Windows Buton Rengi ve Efekti */
+.windows-btn {
+    background: #3b82f6;
+    color: white;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+}
+
+.windows-btn:hover {
+    background: white;
+    color: black;
+    box-shadow: 0 0 25px white;
+    transform: translateY(-3px);
+}
+
+/* Linux Buton Rengi ve Efekti */
+.linux-btn {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.linux-btn:hover {
+    background: white;
+    color: black;
+    transform: translateY(-3px);
+}
+
+.os-icon {
+    font-size: 18px;
+}
+
+/* Ekran küçüldüğünde (Mobil/Tablet) alt alta gelme ayarı */
+@media (max-width: 992px) {
+    .preview-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    .preview-right {
+        text-align: center;
+    }
+    .download-action-buttons {
+        justify-content: center;
+    }
 }
 
 footer{
