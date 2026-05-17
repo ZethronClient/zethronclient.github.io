@@ -1,32 +1,105 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <title>Login</title>
-
-    <link rel="stylesheet" href="style.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title translate="no">Zethron Client - Giriş Yap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Goldman&family=Quantico:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .auth-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #050816;
+        }
+        .auth-card {
+            width: 400px;
+            padding: 40px;
+            background: #000000;
+            border: 2px solid #3b82f6;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+            text-align: center;
+        }
+        .auth-card h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            background: #111111;
+            border: 1px solid #3b82f6;
+            border-radius: 10px;
+            color: white;
+            font-family: 'Quantico', sans-serif;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+        .input-group input:focus {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+            border-color: #ffffff;
+        }
+        .auth-btn {
+            width: 100%;
+            height: 50px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Quantico', sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 15px 0 0 0;
+            transition: 0.3s;
+        }
+        .auth-btn:hover {
+            background: #ffffff;
+            color: #000000;
+            box-shadow: 0 0 20px #ffffff;
+        }
+        .auth-card p {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #a3a3a3;
+        }
+        .auth-card a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
 </head>
-
 <body>
-
-    <div class="auth-box">
-
-        <img src="assets/logo.png" class="auth-logo">
-
-        <h1>LOGIN</h1>
-
-        <input type="text" placeholder="Username">
-
-        <input type="password" placeholder="Password">
-
-        <button>LOGIN</button>
-
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2>GİRİŞ YAP</h2>
+            <form id="login-form">
+                <div class="input-group">
+                    <input type="email" id="login-email" placeholder="E-posta Adresi" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="login-password" placeholder="Şifre" required>
+                </div>
+                <button type="submit" class="auth-btn">OTURUM AÇ</button>
+            </form>
+            <p>Hesabın yok mu? <a href="register.html">Kayıt Ol</a></p>
+        </div>
     </div>
 
+    <script type="module" src="auth.js"></script>
 </body>
-
 </html>
